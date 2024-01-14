@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :group
+  has_many :items, foreign_key: :author_id
 end

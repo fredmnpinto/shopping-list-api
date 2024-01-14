@@ -1,20 +1,21 @@
 class ItemsController < ApplicationController
-  def index
-    all_items = @user.group.items
+  before_action :authenticate_user!
+  before_action :fetch_item, only: [:show, :create, :delete, :update]
 
-    render json: all_items
+  def index
+    all_items = current_user.group.items
+
+    render json: { items: all_items }
+  end
+
+  def show
+    render json: { item: @item }
   end
 
   def create
-    created_item = Item.create(name: item_params[:name], author: @user, group: @user.group)
+    created_item = Item.create(name: item_params[:name], author: current_user, group: current_user.group)
 
-    render json: created_item, status: :created
-  end
-
-  def check
-    @item.update_attributes!(is_checked: true)
-
-    render json: {message: 'Item was successfully checked'}
+    render json: { item: created_item }, status: :created
   end
 
   def delete
@@ -23,12 +24,18 @@ class ItemsController < ApplicationController
     render json: {message: 'Item was successfully deleted'}
   end
 
+  def update
+    @item.update_attributes(items_params)
+
+    render json: {message: 'Item was updated successfully', item: @item}
+  end
+
   protected
   def item_params
-    params.require(:item).permit(:name)
+    params.require(:item).permit(:name, :checked)
   end
 
   def fetch_item
-    @item = @user.group.items.find_by_name(item_params[:name])
+    @item = current_user.group.items.find(params[:id])
   end
 end

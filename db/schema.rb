@@ -24,12 +24,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_28_011436) do
     t.string "name"
     t.integer "quantity"
     t.boolean "is_checked", default: false
-    t.bigint "group_id", null: false
     t.bigint "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_items_on_author_id"
-    t.index ["group_id"], name: "index_items_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,6 +44,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_12_28_011436) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "items", "groups"
   add_foreign_key "items", "users", column: "author_id"
 end

@@ -1,0 +1,2 @@
+DONE: User should be able to see all active items in their group
+TODO: User should be able to create and check off items
