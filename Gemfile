@@ -49,6 +49,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'faker'
 
+  gem 'dotenv-rails'
+
   gem 'pry'
 end
 

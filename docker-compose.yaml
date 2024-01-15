@@ -4,7 +4,10 @@ services:
     volumes:
       - ./tmp/db:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: password
+      #PG_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      #POSTGRES_HOST_AUTH_METHOD: trust
+      
     ports:
       - "5432:5432"
   api:
@@ -12,6 +15,10 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     volumes:
       - .:/myapp
+    environment:
+      DB_HOST: db
+      DB_USERNAME: postgres
+      DB_PASSWORD: postgres
     ports:
       - "3000:3000"
     depends_on:

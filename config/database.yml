@@ -19,14 +19,17 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DB_USERNAME'] or 'postgres' %>
-  password: <%= ENV['DB_PASSWORD'] or 'postgres' %>
   port: 5432
 
 development:
   <<: *default
   database: shopping_list_api_development
+  host: <%= ENV['DB_HOST'] or 'localhost' %>
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
