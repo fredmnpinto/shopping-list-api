@@ -51,10 +51,10 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 
+  gem 'brakeman'
   gem 'bundler-audit'
   gem 'dotenv-rails'
   gem 'rubocop'
-  gem 'brakeman'
 
   gem 'pry'
 end
