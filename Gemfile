@@ -54,6 +54,7 @@ group :development, :test do
   gem 'bundler-audit'
   gem 'dotenv-rails'
   gem 'rubocop'
+  gem 'brakeman'
 
   gem 'pry'
 end
