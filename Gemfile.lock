@@ -180,6 +180,9 @@ GEM
       activesupport (>= 5.0.0)
       minitest
       nokogiri (>= 1.6)
+    rails-healthcheck (1.4.0)
+      actionpack
+      railties
     rails-html-sanitizer (1.6.0)
       loofah (~> 2.21)
       nokogiri (~> 1.14)
@@ -249,6 +252,7 @@ DEPENDENCIES
   pry
   puma (~> 5.0)
   rails (~> 7.0.8)
+  rails-healthcheck
   rspec-rails
   shoulda-matchers
   tzinfo-data

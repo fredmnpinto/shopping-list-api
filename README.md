@@ -1,24 +1,27 @@
-# README
+# How do I get this up?
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Docker
+Well the simplest way is to just use the docker configuration that is in this project to get it up and running (api + db).
 
-Things you may want to cover:
+However life is not that simple, there is a step 0.
 
-* Ruby version
+### Step 0
+Setup a .env file to configure some stuff regarding the database. There for sure is a simpler way to do this that wouldn't require manual intervention but I'm tired so this is what you get.
+```
+DB_HOST=localhost
+DB_USERNAME=postgres
+DB_PASSWORD=postgres
+```
 
-* System dependencies
+### Step 1
+And with that, you can finally just run docker compose and be done with it. With this you'll have a shopping-list-api and shopping-list-db containers running.
+```
+docker compose up
+```
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Step 2
+We're actually done but just as a sanity check you can call the healthcheck endpoint in order to know 10000% that the api is up and running.
+**Note:** this is courtesy of the 'rails-healthcheck' gem, awesome gem in my opinion.
+```
+curl localhost:3000/healthcheck
+```
