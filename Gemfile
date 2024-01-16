@@ -39,7 +39,6 @@ gem 'bootsnap', require: false
 # gem "rack-cors"
 
 gem 'rails-healthcheck'
-gem 'rubocop'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -53,6 +52,8 @@ group :development, :test do
   gem 'shoulda-matchers'
 
   gem 'dotenv-rails'
+  gem 'bundler-audit'
+  gem 'rubocop'
 
   gem 'pry'
 end
