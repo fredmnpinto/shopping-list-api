@@ -17,7 +17,7 @@ describe Item do
 
       item = Item.create name: 'Test name', author: user, quantity: 3
 
-      expect(item.group).to eq user.group 
+      expect(item.group).to eq user.group
     end
   end
 end

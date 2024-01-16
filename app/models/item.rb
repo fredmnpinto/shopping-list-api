@@ -3,5 +3,4 @@ class Item < ApplicationRecord
   has_one :group, through: :author
 
   validates_presence_of :name, :quantity, :author
-
 end

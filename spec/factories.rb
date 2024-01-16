@@ -4,7 +4,7 @@ FactoryBot.define do
   end
 
   factory :user do
-    #name { Faker::Lorem.name }
+    # name { Faker::Lorem.name }
     email { Faker::Internet.email }
     password { Faker::Internet.password }
 
@@ -18,4 +18,3 @@ FactoryBot.define do
     author { FactoryBot.create(:user) }
   end
 end
-

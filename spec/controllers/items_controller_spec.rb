@@ -1,4 +1,4 @@
-require 'spec_helper.rb'
+require 'spec_helper'
 
 describe ItemsController do
   before :each do
@@ -33,13 +33,13 @@ describe ItemsController do
     end
   end
 
-  describe '#destroy' do 
+  describe '#destroy' do
     before :each do
       @item = FactoryBot.create(:item)
       delete :destroy, params: { id: @item.id }
     end
 
-    it 'should destroy the item' do 
+    it 'should destroy the item' do
       expect(Item.exists?(@item.id)).to be_falsey
     end
   end
@@ -55,12 +55,12 @@ describe ItemsController do
 
     it { should respond_with :created }
 
-    it 'should respond with the item created' do 
+    it 'should respond with the item created' do
       expect(response_json[:item][:name]).to eq @item_params[:name]
       expect(response_json[:item][:quantity]).to eq @item_params[:quantity]
     end
   end
-  
+
   describe '#mark' do
     before :each do
       @item = FactoryBot.create(:item, is_checked: false)
@@ -71,7 +71,7 @@ describe ItemsController do
 
     it { should respond_with :success }
 
-    it 'should update the object\'s mark' do 
+    it 'should update the object\'s mark' do
       expect(@item.is_checked).to be_truthy
     end
   end
