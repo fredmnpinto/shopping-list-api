@@ -5,7 +5,7 @@ FactoryBot.define do
 
   factory :user do
     # name { Faker::Lorem.name }
-    email { Faker::Internet.email }
+    email { Faker::Internet.unique.email }
     password { Faker::Internet.password }
 
     group { FactoryBot.create(:group) }

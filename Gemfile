@@ -51,8 +51,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 
-  gem 'dotenv-rails'
   gem 'bundler-audit'
+  gem 'dotenv-rails'
   gem 'rubocop'
 
   gem 'pry'
