@@ -21,7 +21,7 @@ docker compose up
 
 ### Step 2
 We're actually done but just as a sanity check you can call the healthcheck endpoint in order to know 10000% that the api is up and running.
-**Note:** this is courtesy of the 'rails-healthcheck' gem, awesome gem in my opinion.
+**Note:** this is courtesy of the 'rails-healthcheck' gem, insteresting way of not spending time with these unrelated/general things.
 ```
 curl localhost:3000/healthcheck
 ```
